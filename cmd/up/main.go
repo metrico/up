@@ -470,6 +470,11 @@ func buildOptionsFromFlags(
 		Value: opts.Name,
 	})
 
+	opts.Labels = append(opts.Labels, prompb.Label{
+		Name:  "type",
+		Value: "up",
+	})
+
 	opts.Token = tokenProvider(token, tokenFile)
 
 	return opts, err

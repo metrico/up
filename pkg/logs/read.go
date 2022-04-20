@@ -75,7 +75,7 @@ func Read(
 		return res.StatusCode, errors.Wrap(err, "making request")
 	}
 
-	if res.StatusCode != http.StatusOK {
+	if res.StatusCode != http.StatusOK && res.StatusCode != 204 {
 		err = errors.Errorf(res.Status)
 		return res.StatusCode, errors.Wrap(err, "non-200 status")
 	}
